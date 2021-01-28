@@ -17,6 +17,36 @@ module.exports = (app) => {
     });
   });
 
+  app.put(`/api/project/:id`, async (req, res) => {
+    const { id } = req.params;
+    const updateProject = await Project.findByIdAndUpdate(id, req.body); // contain anytjing on teh form
+
+    if (updateProject === undefined) {
+      return res.status(404)
+    }
+
+    updateProject.name = req.body.name
+
+    updateProject.save
+    return res.status(201).send({
+      error: false,
+      updateProject,
+    });
+  });
+  
+
+// Might not delete, but rather hide as data usually is stored. 
+
+  app.delete(`/api/project/:id`, async (req, res) => {
+    const { id } = req.params;
+    const deleteProject = await Project.findByIdAndDelete(id);
+
+    return res.status(202).send({
+      error: false,
+      deleteProject,
+    });
+  });
+
   // CHECK THIS!!!!
 
   //route that takes in the id of an existing Product and creates a Review for it
@@ -48,7 +78,6 @@ module.exports = (app) => {
   //       res.json(err);
   //     });
   // });
-
 
   // app.delete(`/api/project`, async (req, res) => {
   //   const deleteProject = await Project.delete(req.body);
