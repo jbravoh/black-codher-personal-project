@@ -7,7 +7,7 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 //REACT HOOKS
 
 function ProjectForm() {
-  const [ClientName, setClientName] = useState("");
+  // const [ClientName, setClientName] = useState("");
   const [ProjectName, setProjectName] = useState("");
   const [ProjectDescription, setProjectDescription] = useState("");
   const [Country, setCountry] = useState("");
@@ -30,12 +30,12 @@ function ProjectForm() {
   // };
 
   const handleSubmit = (e) => {
-    alert("A profile was submitted: " + ClientName + " - " + ProjectName);
+    alert("A profile was submitted: " + ProjectName);
 
     //Will create an empty project
     var newProject = {
       project_id: 0,
-      client_name: ClientName,
+      // client_name: ClientName,
       project_name: ProjectName,
       project_description: ProjectDescription,
       location: { Country: Country, Region: Region },
@@ -68,14 +68,14 @@ function ProjectForm() {
           // }}
           className="formContainer"
         >
-          <label>
+          {/* <label>
             <div className="label">Client Name:</div>
             <input
               type="text"
               value={ClientName}
               onChange={(e) => setClientName(e.target.value)}
             />
-          </label>
+          </label> */}
           <label>
             <div className="label">Project Name:</div>
             <input
