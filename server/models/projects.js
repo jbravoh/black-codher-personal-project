@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 
 const projectSchema = new Schema({
   project_id: Number,
-  client_name: String,
   project_name: String,
   project_description: String,
   location: Object,

@@ -6,8 +6,8 @@ const Client = mongoose.model("clients");
 // POST - login functionality
 module.exports = (app) => {
   app.post("/api/login", async (req, res) => {
-    const username = req.body.clientUsername;
-    const password = req.body.clientPassword;
+    const username = req.body.username;
+    const password = req.body.password;
     console.log(username, password);
     console.log(req.body);
 
