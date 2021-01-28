@@ -1,22 +1,24 @@
 const mongoose = require("mongoose");
 const Client = mongoose.model("clients");
 
-
 module.exports = (app) => {
+
+  // DO NOT NEED TO GET ALL CLIENTS/USERS
+
   // GET - get clients/users
-  app.get("/api/client", async (req, res) => {
-    const clients = await Client.find(); 
-    return res.status(200).send(clients);
-  });
+  // app.get("/api/client", async (req, res) => {
+  //   const clients = await Client.find();
+  //   return res.status(200).send(clients);
+  // });
 
   //POST - add a new clients/users
   app.post("/api/client", async (req, res) => {
-    const newClient = await Client.create(req.body); 
+    const newClient = await Client.create(req.body);
     return res.status(201).send({
       error: false,
       newClient,
     });
-});
+  });
 
   // //POST route to register a user
   // app.post('/api/client', function(req, res) {
@@ -31,7 +33,6 @@ module.exports = (app) => {
   //     }
   //   })
   // });
- 
 
   //LOGIN
 

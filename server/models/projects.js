@@ -10,7 +10,7 @@ const projectSchema = new Schema({
   date: String,
   contact_information: String,
   skills: Array,
-  owner: {
+  client_id: {
     type: Schema.Types.ObjectId,
     ref: "Client",
   },

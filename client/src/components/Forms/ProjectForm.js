@@ -4,10 +4,9 @@ import "../../stylesheets/Form.css";
 // import Header from "../src/components/Header";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
-
 //REACT HOOKS
 
-function ProjectForm(props) {
+function ProjectForm() {
   const [ClientName, setClientName] = useState("");
   const [ProjectName, setProjectName] = useState("");
   const [ProjectDescription, setProjectDescription] = useState("");
@@ -30,7 +29,7 @@ function ProjectForm(props) {
   //   setTags([...tags.filter((tag) => tags.indexOf(tag) !== index)]);
   // };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     alert("A profile was submitted: " + ClientName + " - " + ProjectName);
 
     //Will create an empty project
@@ -57,11 +56,12 @@ function ProjectForm(props) {
           <h2 className="formTitle">Project Form</h2>
         </React.Fragment>
         <form
+          onkeydown="return event.key != 'Enter';"
           onSubmit={
-            (handleSubmit,
-            (e) => {
-              e.target.keyCode === 13 && e.preventDefault();
-            })
+            handleSubmit
+            // (e) => {
+            //   e.target.keyCode === 13 && e.preventDefault();
+            // })
           }
           // onKeyPress={(e) => {
           //   e.target.keyCode === 13 && e.preventDefault();
@@ -147,12 +147,10 @@ function ProjectForm(props) {
           </label>
 
           <input
-            onKeyPress={(e) => {
-              if (e.key === "Enter") e.preventDefault();
-            }}
             type="submit"
             value="Submit"
             className="button"
+            // onKeyDown={(e) => console.log(e.which)}
           />
         </form>
       </div>

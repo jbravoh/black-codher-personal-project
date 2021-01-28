@@ -59,11 +59,12 @@ body {
 
 .project-profile {
   margin: 0 20px 30px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 350px;
   min-width: 300px;
   text-align: center;
-  height: 220px;
+  height: 200px;
   overflow-wrap: normal;
   box-shadow: 0px 0px 12px -5px;
   list-style: none;
@@ -72,8 +73,8 @@ body {
 
 .project-profile:hover {
   /* cursor: pointer; */
-  width: 370px;
-  height: 230px;
+  width: 360px;
+  height: 210px;
   /* box-shadow: 0px 0px 12px -2px #07689f; */
 }
 
@@ -92,6 +93,9 @@ body {
 .project-element {
   flex-wrap: wrap;
   max-width: 40%;
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
 }
 
 /* .project-description {
@@ -144,7 +148,7 @@ body {
   color: white;
   height: 30px;
   width: 20%;
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   font-weight: bold;

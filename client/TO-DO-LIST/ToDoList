@@ -1,0 +1,9 @@
+
+- Figure out why Dashboard disappears from the navbar
+- Create a signout function 
+- Hide login and show logout menu items when logged in
+- Link Client and Project collections together
+- Render only client projects in ClientProject.js
+- Allow Client to update/delete projects
+- Fix Tag element in ProjectForm.js
+- Render specific project when user clicks "view button" on project card

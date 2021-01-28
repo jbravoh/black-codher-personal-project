@@ -5,8 +5,8 @@
 }
 
 .content-wrap {
-  min-height: 100vh;
-  margin-bottom: -50px;
+  min-height: 100%;
+  /* margin-bottom: -50px; */
 }
 
 .formTitle {
@@ -106,8 +106,9 @@ input[type="file"] {
 .login-link {
   margin-left: 5px;
   margin-top: 5px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   font-weight: bold;
+  padding-bottom: 50px;
 }
 
 a {
@@ -129,7 +130,7 @@ p {
   height: 30px;
   border: 0.5px solid grey;
   padding: 0 2px;
-  width: 48%;
+  width: 48.7%;
   margin-bottom: 10px;
 }
 
@@ -140,5 +141,5 @@ p {
   border: 0.5px solid grey;
   padding: 0 2px;
   margin-left: 10px;
-  /* width: 48%; */
+  width: 48.7%;
 }
