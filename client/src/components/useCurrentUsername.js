@@ -1,24 +1,20 @@
 import { useState } from "react";
 
-export default function useCurrentUsername() {
-  const getCurrentUsername = () => {
-    const currentUsernameString = localStorage.getItem("currentusername");
-    const userCurrentUsername = JSON.parse(currentUsernameString);
-    return userCurrentUsername?.currentUsername;
+export default function useId() {
+  const getId = () => {
+    const id = localStorage.getItem("id");
+    return id;
   };
 
-  const [currentUsername, setCurrentUsername] = useState(getCurrentUsername());
+  // const [id, setId] = useState(getId());
 
-  const saveCurrentUsername = (userCurrentUsername) => {
-    localStorage.setItem(
-      "currentusername",
-      JSON.stringify(userCurrentUsername)
-    );
-    setCurrentUsername(userCurrentUsername.currentUsername);
+  const saveId = (clientId) => {
+    localStorage.setItem("id", JSON.stringify(clientId));
+    // setId(clientId);
   };
 
   return {
-    setCurrentUsername: saveCurrentUsername,
-    currentUsername,
+    setId: saveId,
+    getId,
   };
 }

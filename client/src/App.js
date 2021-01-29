@@ -17,27 +17,29 @@ import Footer from "./components/Footer";
 import { Link } from "react-router-dom";
 import ProjectProfile from "./pages/ProjectProfile";
 import useToken from "./components/useToken"; //TEST
-// import useCurrentUsername from "./components/useCurrentUsername";
+import axios from "axios";
+import appId from "./components/useCurrentUsername";
 
 function App() {
-  const [projects, setprojects] = useState(null);
-  const [searchedProjects, setsearchedProjects] = useState([]);
+  const [searchedProjects, setSearchedProjects] = useState([]);
   const { token, setToken } = useToken(); //TEST
-  const [client, setClient] = useState({});
+  // const [client, setClient] = useState({});
+  const [hasSearched, setHasSearched] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   // const [token, setToken] = useState();
   // const [currentUsername, setCurrentUsername] = useCurrentUsername();
 
-  useEffect(() => {
-    if (!projects) {
-      getprojects();
-    }
-  });
+  // useEffect(() => {
+  //   if (!projects) {
+  //     getprojects();
+  //   }
+  // });
 
-  const getprojects = async () => {
-    // copy this and three const and create versions for projects
-    let res = await projectService.getAll();
-    setprojects(res);
-  };
+  // const getprojects = async () => {
+  //   // copy this and three const and create versions for projects
+  //   let res = await projectService.getAll();
+  //   setprojects(res);
+  // };
 
   const renderProject = (project) => {
     return (
@@ -45,7 +47,7 @@ function App() {
         <div className="project-elements">
           <h3 className="project-name">{`${project.project_name}`} </h3>
           <h4 className="client-name">{`${project.client_name}`}</h4>
-          <h5 className="project-Location">{`${project.location.Region}, ${project.location.Country}`}</h5>
+          <h5 className="project-Location">{`${project.location?.Region}, ${project.location?.Country}`}</h5>
           <Link to="/projectprofile">
             <button className="view-project">View</button>
           </Link>
@@ -58,8 +60,26 @@ function App() {
     );
   };
 
-  const renderSearchProject = (projects) => {
-    setsearchedProjects(projects);
+  // const renderSearchProject = (projects) => {
+  //   setSearchedProjects(projects);
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .get(`http://localhost:5000/api/project?term=${searchTerm}`)
+      .then((results) => {
+        setSearchedProjects(results.data);
+        setHasSearched(true);
+        //Not working!
+        setTimeout(() => {
+          setHasSearched(false);
+        }, 3000);
+      })
+      .catch((error) => console.log(error.results));
+    // make get request
+    //pass in search term
+    //parse results into project array
   };
 
   return (
@@ -67,7 +87,8 @@ function App() {
     <>
       <div className="content-wrap">
         <Router>
-          <Navbar token={token} /> {/* Moving Navbar here means you only need in once in your app */}
+          <Navbar token={token} />{" "}
+          {/* Moving Navbar here means you only need in once in your app */}
           <Route
             exact
             path="/"
@@ -77,14 +98,29 @@ function App() {
                   Find <span className="tagline-span-1">opportunities</span> and
                   build up your <span className="tagline-span-2">CV</span>
                 </p>
-                <Search projects={projects} search={renderSearchProject} />
+                <form onSubmit={handleSubmit} className="search">
+                  <input
+                    className="input"
+                    type="text"
+                    value={searchTerm}
+                    placeholder="Search Projects..."
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                    }}
+                  ></input>
+                  <button type="submit" className="searchButton">
+                    Search
+                  </button>
+                </form>
                 <div>
                   <ul className="projects-container">
-                    {searchedProjects && searchedProjects.length > 0 ? (
-                      searchedProjects.map((project) => renderProject(project)) // looping through project and rendering on the screen
-                    ) : (
-                      <p> No projects found </p>
-                    )}
+                    {
+                      searchedProjects.length > 0 &&
+                        searchedProjects.map((project) =>
+                          renderProject(project)
+                        ) // looping through project and rendering on the screen
+                    }
+                    {hasSearched && <p> No projects found </p>}
                   </ul>
                 </div>
               </React.Fragment>
@@ -172,7 +208,7 @@ function App() {
               <React.Fragment>
                 <LoginForm
                   setToken={setToken}
-                  setClient={setClient}
+                  setClient={appId().setId}
                   // setCurrentUsername={setCurrentUsername}
                 />
               </React.Fragment>

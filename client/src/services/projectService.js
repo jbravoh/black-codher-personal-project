@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
+import appId from "../components/useCurrentUsername";
 
 export default {
   getAll: async () => {
@@ -12,7 +13,8 @@ export default {
   //Pass in newProject in the parameter to link it to the information in the Project Form
   createProject: async (newProject) => {
     console.log(newProject);
-    await axios.post(`/api/project`, newProject);
+    console.log(appId().getId());
+    await axios.post(`/api/project?client_id=${appId().getId()}`, newProject);
   },
 };
 

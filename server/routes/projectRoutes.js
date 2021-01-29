@@ -4,8 +4,22 @@ const Project = mongoose.model("projects");
 module.exports = (app) => {
   // Get's all the projects
   app.get(`/api/project`, async (req, res) => {
-    const projects = await Project.find(); // calling function to get the data
-    return res.status(200).send(projects);
+    const { client_id, term } = req.query;
+    console.log(term);
+    if (client_id === undefined) {
+      if (term !== undefined) {
+        const projects = await Project.find({
+          project_name: new RegExp(term, "i"),
+        });
+        return res.status(200).send(projects);
+      } else {
+        const projects = await Project.find();
+        return res.status(200).send(projects);
+      }
+    } else {
+      const projects = await Project.find({ client_id }); // calling function to get the data
+      return res.status(200).send(projects);
+    }
   });
 
   //POST - add a new project
@@ -22,20 +36,19 @@ module.exports = (app) => {
     const updateProject = await Project.findByIdAndUpdate(id, req.body); // contain anytjing on teh form
 
     if (updateProject === undefined) {
-      return res.status(404)
+      return res.status(404);
     }
 
-    updateProject.name = req.body.name
+    updateProject.name = req.body.name;
 
-    updateProject.save
+    updateProject.save;
     return res.status(201).send({
       error: false,
       updateProject,
     });
   });
-  
 
-// Might not delete, but rather hide as data usually is stored. 
+  // Might not delete, but rather hide as data usually is stored.
 
   app.delete(`/api/project/:id`, async (req, res) => {
     const { id } = req.params;
