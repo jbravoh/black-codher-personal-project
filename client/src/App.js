@@ -26,7 +26,6 @@ function App() {
   // const [client, setClient] = useState({});
   const [hasSearched, setHasSearched] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [project, setProject] = useState(null);
   // const [token, setToken] = useState();
   // const [currentUsername, setCurrentUsername] = useCurrentUsername();
 
@@ -49,11 +48,15 @@ function App() {
           <h3 className="project-name">{`${project.project_name}`} </h3>
           <h4 className="client-name">{`${project.client_name}`}</h4>
           <h5 className="project-Location">{`${project.location?.Region}, ${project.location?.Country}`}</h5>
-          <Link to="/projectprofile">
-            <button className="view-project"
-            onClick={() => setProject(project)}>
-              View
-            </button>
+          <Link
+            to={{
+              pathname: "/projectprofile",
+              state: {
+                project: project,
+              },
+            }}
+          >
+            <button className="view-project">View</button>
           </Link>
         </div>
       </li>

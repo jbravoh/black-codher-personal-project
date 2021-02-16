@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../stylesheets/ProjectProfile.css";
-import { Link } from "react-router-dom";
-import projectService from "../services/projectService";
+import { Link, useLocation } from "react-router-dom";
+// import projectService from "../services/projectService";
 
 function ProjectProfile() {
-  const [projects, setprojects] = useState(null);
+  let location = useLocation();
+  let { project } = location.state;
 
-  useEffect(() => {
-    if (!projects) {
-      getprojects();
-    }
-  });
-
-  const getprojects = async () => {
-
-    let res = await projectService.getAll();
-    setprojects(res);
-  };
+  console.log(project);
 
   const renderProject = (project) => {
     return (
-      <li key={project.id} className="project-profile">
-        <div className="project-elements">
-          <h3 className="project-name">{`${project.project_name}`} </h3>
-          <h4 className="client-name">{`${project.client_name}`}</h4>
-          <h5 className="project-Location">{`${project.location.Region}, ${project.location.Country}`}</h5>
-          <p className="project-date">{`${project.date}`}</p>
-          <p className="project-description">{`${project.project_description}`}</p>
+      <li key={project.id} className="profile">
+        <div className="profile-header">
+          <h2 className="profile-name">{`${project.project_name}`} </h2>
+          <h3 className="profile-client-name">{`${project.client_name}`}</h3>
+          <p className="profile-location">{`${project.location.Region}, ${project.location.Country}`}</p>
         </div>
+          {/* <div className="flex">
+            <p className="profile-Location">{`${project.location.Region}, ${project.location.Country}`}</p>
+            <p className="profile-date">Deadline: {`${project.date}`}</p>
+          </div> */}
+          <h4 className="profile-subheading">Description </h4>
+          <p className="profile-description">{`${project.project_description}`}</p>
+       
         <Link to="/projectprofile">
-          <button className="Apply">Apply</button>
+          <button className="apply-button">Get In Touch</button>
         </Link>
       </li>
     );
@@ -37,13 +33,13 @@ function ProjectProfile() {
 
   return (
     <>
-      <h1 className="profile-header">Details</h1>;
+      {/* <h1 className="profile-title">Details</h1>; */}
       <div>
-        <ul className="projects-container">
-          {projects && projects.length > 0 ? (
-            projects.map((project) => renderProject(project)) // looping through project and rendering on the screen
+        <ul className="container">
+          {project ? (
+            renderProject(project)
           ) : (
-            <p> No projects found </p>
+            <p> No project details to display </p>
           )}
         </ul>
       </div>
