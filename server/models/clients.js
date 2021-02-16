@@ -3,16 +3,7 @@ const { Schema } = mongoose;
 
 const clientSchema = new Schema({
   client_id: Number,
-  first_name: String,
-  last_name: String,
-  company_name: {
-    type: String,
-    required: true,
-  },
-  company_logo: {
-    type: String,
-    data: Buffer,
-  },
+  client_name: String,
   email: {
     type: String,
     required: true,
@@ -29,14 +20,14 @@ const clientSchema = new Schema({
   },
 });
 
-clientSchema.pre("save", function (next) {
-  // Check to see if document is new or a new password has been set
-  if (this.isNew || this.isModified("password")) {
-    // Saving reference to this because of changing scopes
-  } else {
-    next();
-  }
-});
+// clientSchema.pre("save", function (next) {
+//   // Check to see if document is new or a new password has been set
+//   if (this.isNew || this.isModified("password")) {
+//     // Saving reference to this because of changing scopes
+//   } else {
+//     next();
+//   }
+// });
 //     const document = this;
 //     bcrypt.hash(document.password, saltRounds, function (err, hashedPassword) {
 //       if (err) {
