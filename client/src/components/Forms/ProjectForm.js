@@ -7,7 +7,7 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 //REACT HOOKS
 
 function ProjectForm() {
-  // const [ClientName, setClientName] = useState("");
+  const [ClientName, setClientName] = useState("");
   const [ProjectName, setProjectName] = useState("");
   const [ProjectDescription, setProjectDescription] = useState("");
   const [Country, setCountry] = useState("");
@@ -35,7 +35,7 @@ function ProjectForm() {
     //Will create an empty project
     var newProject = {
       project_id: 0,
-      // client_name: ClientName,
+      client_name: ClientName,
       project_name: ProjectName,
       project_description: ProjectDescription,
       location: { Country: Country, Region: Region },
@@ -68,14 +68,14 @@ function ProjectForm() {
           // }}
           className="formContainer"
         >
-          {/* <label>
+          <label>
             <div className="label">Client Name:</div>
             <input
               type="text"
               value={ClientName}
               onChange={(e) => setClientName(e.target.value)}
             />
-          </label> */}
+          </label>
           <label>
             <div className="label">Project Name:</div>
             <input
@@ -86,8 +86,7 @@ function ProjectForm() {
           </label>
           <label>
             <div className="label">Project Description:</div>
-            <input
-              type="textarea"
+            <textarea
               value={ProjectDescription}
               onChange={(e) => setProjectDescription(e.target.value)}
               rows={5}
@@ -145,13 +144,14 @@ function ProjectForm() {
               onChange={(e) => setDate(e.target.value)}
             />
           </label>
-
-          <input
+          <button
             type="submit"
-            value="Submit"
+            // value="Submit"
             className="button"
-            // onKeyDown={(e) => console.log(e.which)}
-          />
+          >
+            Submit
+          </button>
+          {/* // onKeyDown={(e) => console.log(e.which)} */}
         </form>
       </div>
     </>
