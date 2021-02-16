@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Header from "../src/components/Header";
-import projectService from "./services/projectService";
+// import projectService from "./services/projectService";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import ProjectForm from "./components/Forms/ProjectForm";
@@ -9,7 +9,7 @@ import "./stylesheets/App.css";
 import SignUpForm from "./components/Forms/SignUpForm";
 import LoginForm from "./components/Forms/LoginForm";
 import Search from "./components/Search";
-// import Form from "../src/components/Forms/Form";
+
 import Dashboard from "./pages/Dashboard";
 import ClientProjects from "./pages/ClientProjects";
 import Opportunities from "./components/Opportunities";
@@ -26,6 +26,7 @@ function App() {
   // const [client, setClient] = useState({});
   const [hasSearched, setHasSearched] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [project, setProject] = useState(null);
   // const [token, setToken] = useState();
   // const [currentUsername, setCurrentUsername] = useCurrentUsername();
 
@@ -49,13 +50,12 @@ function App() {
           <h4 className="client-name">{`${project.client_name}`}</h4>
           <h5 className="project-Location">{`${project.location?.Region}, ${project.location?.Country}`}</h5>
           <Link to="/projectprofile">
-            <button className="view-project">View</button>
+            <button className="view-project"
+            onClick={() => setProject(project)}>
+              View
+            </button>
           </Link>
-          {/* <p className="project-date">{`${project.date}`}</p> */}
         </div>
-        {/* <div className="description-flex">
-          <p className="project-description">{`${project.project_description}`}</p>
-        </div> */}
       </li>
     );
   };
@@ -71,15 +71,20 @@ function App() {
       .then((results) => {
         setSearchedProjects(results.data);
         setHasSearched(true);
-        //Not working!
         setTimeout(() => {
           setHasSearched(false);
         }, 3000);
       })
       .catch((error) => console.log(error.results));
-    // make get request
-    //pass in search term
-    //parse results into project array
+  };
+
+  const handleSearchResults = () => {
+    if (searchedProjects.length > 0) {
+      // looping through project and rendering on the screen
+      return searchedProjects.map((project) => renderProject(project));
+    } else if (hasSearched) {
+      return <p>No Projects Found!</p>;
+    }
   };
 
   return (
@@ -88,7 +93,6 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Navbar token={token} />{" "}
-          {/* Moving Navbar here means you only need in once in your app */}
           <Route
             exact
             path="/"
@@ -114,13 +118,7 @@ function App() {
                 </form>
                 <div>
                   <ul className="projects-container">
-                    {
-                      searchedProjects.length > 0 &&
-                        searchedProjects.map((project) =>
-                          renderProject(project)
-                        ) // looping through project and rendering on the screen
-                    }
-                    {hasSearched && <p> No projects found </p>}
+                    {handleSearchResults()}
                   </ul>
                 </div>
               </React.Fragment>
