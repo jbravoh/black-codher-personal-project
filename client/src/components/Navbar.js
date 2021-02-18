@@ -3,7 +3,7 @@ import React from "react";
 import "../stylesheets/Navbar.css";
 import { Link } from "react-router-dom";
 
-const MenuItems = [
+const loggedIn = [
   {
     label: "Opportunities",
     url: "/opportunities",
@@ -20,21 +20,41 @@ const MenuItems = [
     cName: "nav-links",
   },
   {
-    label: "Login",
-    url: "/login",
+    label: "Logout",
+    url: "/",
     cName: "nav-links",
   },
-  // {
-  //   label: "Logout",
-  //   url: "/login",
-  //   cName: "nav-links",
-  // },
   {
     label: "Become a Client",
     url: "/signup",
     cName: "nav-links-mobile",
   },
 ];
+
+const loggedOut = [
+  {
+    label: "Opportunities",
+    url: "/opportunities",
+    cName: "nav-links",
+  },
+  {
+    label: "About",
+    url: "/about",
+    cName: "nav-links",
+  },
+  {
+    label: "Login",
+    url: "/login",
+    cName: "nav-links",
+  },
+  {
+    label: "Become a Client",
+    url: "/signup",
+    cName: "nav-links-mobile",
+  },
+];
+
+
 
 class Navbar extends React.Component {
   state = { clicked: false };
@@ -44,15 +64,7 @@ class Navbar extends React.Component {
   };
 
   render() {
-
-    
-    const navbarItems = MenuItems.filter((item) => {
-      if (!this.props.token && item.label === "Dashboard") {
-        return false;
-      }
-      return true;
-    });
-
+    const navbarItems = this.props.isLoggedIn ? loggedIn : loggedOut
     // const loginLogout = MenuItems.filter((item) => {
     //   if (!this.props.token && item.label === "Logout") {
     //   return false;
