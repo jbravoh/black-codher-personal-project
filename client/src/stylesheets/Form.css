@@ -4,10 +4,15 @@
   font-family: "Montserrat", sans-serif;
 }
 
+/* form {
+  padding-bottom: 10px;
+  max-height: 100%;
+  margin-bottom: -50px;
+}
+
 .content-wrap {
   max-height: 100%;
-  /* margin-bottom: -50px; */
-}
+} */
 
 .formTitle {
   text-align: center;
@@ -41,7 +46,12 @@ input {
   border-radius: 5px;
 }
 
-.button {
+textarea {
+  width: 400px;
+}
+
+.button,
+.project-button {
   margin-top: 30px;
   border-radius: 8px;
   font-weight: bold;
@@ -57,7 +67,8 @@ input {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.project-button:hover {
   background-color: white;
   color: #ff7e67;
   border-bottom-style: none;
@@ -65,33 +76,15 @@ input {
   border: 1.5px solid #ff7e67;
 }
 
+.project-button {
+  margin-bottom: 40px;
+  position: relative;
+}
+
 .logo-upload {
   border: none;
   padding: 0;
 }
-
-/* .new-button {
-  display: inline-block;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: #ff7e67;
-  font-size: 12px;
-  color: #fff;
-}
-
-input[type="file"] {
-  position: absolute;
-  z-index: -1;
-  top: 6px;
-  left: 0;
-  font-size: 12px;
-  border: none;
-}
-
-.button-wrap {
-  position: relative;
-} */
 
 .login-sentence,
 .sign-up-sentence {
@@ -106,9 +99,7 @@ input[type="file"] {
 .login-link {
   margin-left: 5px;
   margin-top: 5px;
-  /* margin-bottom: 50px; */
   font-weight: bold;
-  /* padding-bottom: 50px; */
 }
 
 a {

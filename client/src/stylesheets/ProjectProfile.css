@@ -1,17 +1,100 @@
-.content-wrap {
+/* .content-wrap {
   min-height: cal(100vh - 70px);
   margin-bottom: -50px;
+} */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* margin: 1rem auto; */
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  list-style-type: none;
+}
+
+.profile {
+  /* margin: 10px; */
+  width: 80%;
 }
 
 .profile-header {
   text-align: center;
+}
+
+/* .profile-title {
+  text-align: center;
   color: #ff7e67;
   margin-top: 30px;
   font-size: 40px;
-}
-
-.profile-paragraph {
-  text-align: center;
-  font-size: 18px;
+} */
+.profile-name {
+  font-size: 40px;
+  color: #ff7e67;
   margin-top: 30px;
 }
+
+.profile-client-name {
+  color: #07689f;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+}
+
+/* .flex {
+  display: flex;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+} */
+
+.profile-location {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.profile-subheading {
+  /* color: #ff7e67; */
+  color: #07689f;
+  margin-bottom: 0.5rem;
+}
+
+/* .apply-button {
+  margin: 2rem auto 3rem;
+  display: flex;
+  justify-content: center;
+} */
+
+.apply-button {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #ff7e67;
+  color: white;
+  height: 50px;
+  width: 15rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: none;
+  cursor: pointer;
+  overflow: none;
+}
+
+.apply-button:hover {
+  background-color: white;
+  color: #ff7e67;
+  border-bottom-style: none;
+  border-left-style: none;
+  border: 1.5px solid #ff7e67;
+}
+
+.logo-upload {
+  border: none;
+  padding: 0;
+}
+
+/* .project-description {
+  margi
+} */

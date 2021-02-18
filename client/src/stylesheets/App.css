@@ -7,35 +7,44 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/*FOR FOOTER FORMATTING */
-html,
-body {
+html {
   height: 100%;
 }
 
-/*FOR FOOTER FORMATTING */
-.content-wrap {
+/* === FOR FOOTER FORMATTING === */
+body {
   min-height: 100vh;
-  margin-bottom: -50;
 }
 
-/* .projects-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-} */
+.content-wrap {
+  min-height: 100vh;
+  margin-bottom: -50px;
+}
 
-/* .projects-container {
-  margin: 20px 30px 90px;
-  display: grid;
-  grid-auto-rows: auto;
-  list-style: none;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  /* justify-content: center;
-  align-content: center; */
-/* grid-column-gap: 6px;
-  grid-row-gap:6px;
- } */
+.push {
+  height: 70px;
+}
+
+.footer {
+  margin-top: auto;
+  height: 50px;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 104, 159, 1) 10%,
+    rgb(162, 213, 242) 60%
+  );
+}
+
+.copyright {
+  color: white;
+  padding-top: 15px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* === PROJECTS DISPLAY */
 
 .projects-container {
   display: flex;
@@ -45,17 +54,6 @@ body {
   flex-wrap: wrap;
   padding-bottom: 30px;
 }
-
-/* .project-profile {
-  border: 0px solid black;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 10px;
-  display: grid;
-  grid-template-columns: 30% 60%;
-  overflow-wrap: normal;
-  box-shadow: 0px 0px 12px -5px;
-} */
 
 .project-profile {
   margin: 0 20px 30px;
@@ -72,10 +70,8 @@ body {
 }
 
 .project-profile:hover {
-  /* cursor: pointer; */
   width: 360px;
   height: 210px;
-  /* box-shadow: 0px 0px 12px -2px #07689f; */
 }
 
 .project-name {
@@ -97,12 +93,6 @@ body {
   display: flex;
   align-content: center;
 }
-
-/* .project-description {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-} */
 
 .tagline {
   text-align: center;
@@ -128,18 +118,7 @@ body {
   font-size: 40px;
 }
 
-/* Read more link  */
-
-.read-more-link {
-  color: blueviolet;
-  text-decoration: underline;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-.extra-content {
-  color: cornflowerblue;
-  font-weight: 500;
-}
+/* === PROJECT BUTTON === */
 
 .view-project {
   margin-top: 25px;
@@ -165,3 +144,7 @@ body {
   border-left-style: none;
   border: 1.5px solid #ff7e67;
 }
+
+/* .footer {
+
+} */
