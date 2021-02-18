@@ -4,34 +4,28 @@ import "../../stylesheets/Form.css";
 import { Link } from "react-router-dom";
 // import FileUploader from "../FileUploader";
 
-//FIELDS DO NOT CLEAR AFTER SUBMISSION
-
 function SignUpForm() {
-  // const [ClientFirstName, setClientFirstName] = useState("");
-  // const [ClientLastName, setClientLastName] = useState("");
-  const [CompanyName, setCompanyName] = useState("");
-  // const [CompanyLogo, setCompanyLogo] = useState("");
+  const [ClientName, setClientName] = useState("");
   const [ClientEmail, setClientEmail] = useState("");
   const [ClientUsername, setClientUsername] = useState("");
   const [ClientPassword, setClientPassword] = useState("");
 
-  // const handleFileInput = (e) => {
-  //   // handle validations - NEED TO DEFINE!!!!
-  //   setCompanyLogo(e.target.value);
-  // };
-  // if (fileInput.size > 1024) {
-  //   onFileSelectError({ error: "File size cannot exceed more than 1MB" });
-  // } else onFileSelectSuccess(file);
+  const handleReset = () => {
+    Array.from(document.querySelectorAll("input")).forEach(
+      (input) => (input.value = "")
+    );
+    setClientName("");
+    setClientEmail("");
+    setClientUsername("");
+    setClientPassword("");
+  };
 
   const handleSubmit = async (e) => {
     alert("Your sign up is complete!");
 
     var newClient = {
       client_id: 0,
-      // first_name: ClientFirstName,
-      // last_name: ClientLastName,
-      company_name: CompanyName,
-      // company_logo: CompanyLogo,
+      client_name: ClientName,
       email: ClientEmail,
       username: ClientUsername,
       password: ClientPassword,
@@ -40,6 +34,7 @@ function SignUpForm() {
     //create the actual project
     clientService.createClient(newClient);
     e.preventDefault();
+    handleReset();
   };
 
   return (
@@ -49,56 +44,18 @@ function SignUpForm() {
         <h2 className="formTitle">Create a New Account</h2>
       </React.Fragment>
       <form onSubmit={handleSubmit} className="formContainer">
-        {/* <label>
-            <div className="label">First Name:</div>
-            <input
-              type="text"
-              value={ClientFirstName}
-              onChange={(e) => setClientFirstName(e.target.value)}
-            />
-          </label>
-          <label>
-            <div className="label">Last Name:</div>
-            <input
-              type="text"
-              value={ClientLastName}
-              onChange={(e) => setClientLastName(e.target.value)}
-            />
-          </label> */}
         <label>
           <div className="label">Company Name:</div>
           <input
             type="textarea"
-            value={CompanyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            value={ClientName}
+            onChange={(e) => setClientName(e.target.value)}
           />
         </label>
-        {/* COMPANY LOGO UPLOADER
-          <label>
-            <div className="label">Company Logo:</div>
-            {/* <input
-              type="file"
-              value={CompanyLogo}
-              onChange={(e) => setCompanyLogo(e.target.value)}
-              className="company-log-btn"
-            /> */}
-
-        {/* <input
-              id="file"
-              type="file"
-              value={CompanyLogo}
-              onChange={handleFileInput}
-              className="logo-upload"
-            ></input> */}
-        {/* <button
-              onClick={(e) => fileInput.current && fileInput.current.click(e)}
-              className="logo-upload-btn"
-            ></button> */}
-        {/* </label> */}
         <label>
           <div className="label">Email</div>
           <input
-            type="text"
+            type="email"
             value={ClientEmail}
             onChange={(e) => setClientEmail(e.target.value)}
           />
@@ -114,7 +71,7 @@ function SignUpForm() {
         <label>
           <div className="label">Password:</div>
           <input
-            type="text"
+            type="password"
             value={ClientPassword}
             onChange={(e) => setClientPassword(e.target.value)}
           />

@@ -6,8 +6,7 @@
         "project_description": "This is the description of the project...",
         "location": "London",
         "date": "21/12/20",
-        "contact_information": "email address...",
-        "skills": ["html", "json", "javascript"]
+        "contact_information": "email address..."
     },
     {
         "project_id": 2,
@@ -16,8 +15,7 @@
         "project_description": "This is the description of the project...",
         "location": "Manchester",
         "date": "21/12/20",
-        "contact_information": "email address...",
-        "skills": ["html", "json", "javascript"]
+        "contact_information": "email address..."
     },
     {
         "project_id": 3,
@@ -26,8 +24,7 @@
         "project_description": "This is the description of the project...",
         "location": "Leicester",
         "date": "21/12/20",
-        "contact_information": "email address...",
-        "skills": ["html", "json", "javascript"]
+        "contact_information": "email address..."
     },
     {
         "project_id": 4,
@@ -36,7 +33,6 @@
         "project_description": "This is the description of the project...",
         "location": "Sheffied",
         "date": "21/12/20",
-        "contact_information": "email address...",
-        "skills": ["photography", "photoshop", "javascript"]
+        "contact_information": "email address..."
     }
 ]

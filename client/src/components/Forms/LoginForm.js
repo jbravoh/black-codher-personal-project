@@ -8,6 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 
 // UPDATE AND ADD THIS TO CLIENT SERVIC
 async function loginUser(credentials) {
+  console.log(JSON.stringify(credentials));
   return fetch("http://localhost:5000/api/login", {
     method: "POST",
     headers: {
@@ -17,19 +18,25 @@ async function loginUser(credentials) {
   }).then((data) => data.json());
 }
 //Add setCurrentUsername as a property in Login form
-function LoginForm({ setClient, setToken }) {
+function LoginForm({ setClient, setToken, setIsLoggedIn }) {
   const [clientUsername, setClientUsername] = useState("");
   const [clientPassword, setClientPassword] = useState("");
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const loginData = await loginUser({
       clientUsername,
       clientPassword,
     });
-    setToken(loginData.token);
-    setClient(loginData.client);
+
+    if (loginData.token) {
+      setIsLoggedIn(true);
+    }
+
+    // setToken(loginData.token);
+    // setClient(loginData.client);
     console.log(loginData);
     history.push("/dashboard");
     // setCurrentUsername({ currentUsername: clientUsername });
@@ -40,9 +47,11 @@ function LoginForm({ setClient, setToken }) {
 
   return (
     <>
+      {/* <div className="content-wrap"> */}
       <React.Fragment>
         <h2 className="formTitle">Login</h2>
       </React.Fragment>
+
       <form onSubmit={handleSubmit} className="formContainer">
         <label>
           <div className="label">Username:</div>

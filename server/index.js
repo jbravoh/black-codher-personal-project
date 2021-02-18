@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 
 // IMPORT YOUR MODELS
 require("./models/Users");
-require("./models/projects");
-require("./models/clients");
+require("./models/Projects");
+require("./models/Clients");
 
 const app = express(); // CHECK IF THIS IS CORRECT
 app.use(cors());
@@ -22,12 +22,15 @@ mongoose.connect(
 );
 
 app.use(bodyParser.json());
+// app.use(express.urlencoded({ extended: true }));
 
 // IMPORT YOUR ROUTES
 require("./routes/usersRoutes")(app);
 require("./routes/projectRoutes")(app);
 require("./routes/clientRoutes")(app);
 require("./routes/loginRoutes")(app);
+
+// app.use(".routes/clientRoutes");
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -26,6 +26,8 @@ function App() {
   // const [client, setClient] = useState({});
   const [hasSearched, setHasSearched] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // const [token, setToken] = useState();
   // const [currentUsername, setCurrentUsername] = useCurrentUsername();
 
@@ -95,7 +97,7 @@ function App() {
     <>
       <div className="content-wrap">
         <Router>
-          <Navbar token={token} />{" "}
+          <Navbar token={token} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
           <Route
             exact
             path="/"
@@ -210,6 +212,7 @@ function App() {
                 <LoginForm
                   setToken={setToken}
                   setClient={appId().setId}
+                  setIsLoggedIn={setIsLoggedIn}
                   // setCurrentUsername={setCurrentUsername}
                 />
               </React.Fragment>
@@ -225,8 +228,8 @@ function App() {
             )}
           />
         </Router>
+        <div className="push"></div>
       </div>
-
       <Footer />
     </>
   );

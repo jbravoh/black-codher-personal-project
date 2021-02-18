@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const clientSchema = new Schema({
-  client_id: Number,
   client_name: String,
   email: {
     type: String,
@@ -19,6 +18,8 @@ const clientSchema = new Schema({
     required: true,
   },
 });
+
+module.exports = mongoose.model("clients", clientSchema);
 
 // clientSchema.pre("save", function (next) {
 //   // Check to see if document is new or a new password has been set
@@ -40,5 +41,3 @@ const clientSchema = new Schema({
 //     next();
 //   }
 // });
-
-module.exports = mongoose.model("clients", clientSchema);
