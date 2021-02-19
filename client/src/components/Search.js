@@ -11,10 +11,8 @@ class Search extends React.Component {
       SearchBar: "",
     };
 
-    //wire up events - handleChange used when you change something inside textbox, handleSubmit is used when you used the submit button
 
     this.handleChangeSearchBar = this.handleChangeSearchBar.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeSearchBar(event) {
@@ -57,32 +55,5 @@ class Search extends React.Component {
     );
   }
 }
-
-// const Search = (props) => {
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     console.log(123);
-//   };
-//   return (
-//     <form className="search" onSubmit={handleSubmit}>
-//       <input
-//         className="input"
-//         type="text"
-//         placeholder="Search Projects..."
-//         value={props.keyword}
-//         onChange={(e) => props.setKeyword(e.target.value)}
-
-//       ></input>
-//       <input
-//               type="text"
-//               value={this.state.Client}
-//               onChange={this.handleChangeClientFirstName}
-//             />
-//       <button type="submit" className="searchButton">
-//         Search
-//       </button>
-//     </form>
-//   );
-// };
 
 export default Search;

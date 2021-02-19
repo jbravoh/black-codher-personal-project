@@ -36,10 +36,11 @@ body {
   margin: 0 8px 8px 0;
   background: #07689f;
 }
-/* .tag:hover {
-      background: rgb(162, 213, 242);
-      color: #07689f;
-    } */
+.tag:hover {
+  background: rgb(162, 213, 242);
+  color: #07689f;
+}
+
 .tag-title {
   color: white;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Opportunities() {
@@ -27,20 +27,18 @@ function Opportunities() {
         <h4 className="client-name">{`${project.client_name}`}</h4>
         <h5 className="project-Location">{`${project.location?.Region}, ${project.location?.Country}`}</h5>
         <Link
-            to={{
-              pathname: "/projectprofile",
-              state: {
-                project: project,
-              },
-            }}
-          >
-            <button className="view-project">View</button>
-          </Link>
+          to={{
+            pathname: "/projectprofile",
+            state: {
+              project: project,
+            },
+          }}
+        >
+          <button className="view-project">View</button>
+        </Link>
       </div>
     </li>
   );
-
-
 
   return (
     <div>
@@ -58,4 +56,3 @@ function Opportunities() {
 
 export default Opportunities;
 
-//USE EFFECT SO IT COMMUNICATES WITH THE SERVER

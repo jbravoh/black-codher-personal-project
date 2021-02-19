@@ -14,8 +14,9 @@
 }
 
 .profile {
-  /* margin: 10px; */
-  width: 80%;
+  margin: 0 6rem;
+
+  text-align: center;
 }
 
 .profile-header {
@@ -36,16 +37,9 @@
 
 .profile-client-name {
   color: #07689f;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
-
-/* .flex {
-  display: flex;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-} */
 
 .profile-location {
   margin-bottom: 2rem;
@@ -53,16 +47,13 @@
 }
 
 .profile-subheading {
-  /* color: #ff7e67; */
   color: #07689f;
   margin-bottom: 0.5rem;
 }
 
-/* .apply-button {
-  margin: 2rem auto 3rem;
-  display: flex;
-  justify-content: center;
-} */
+.profile-description {
+  line-height: 2;
+}
 
 .apply-button {
   margin-top: 30px;
@@ -94,7 +85,3 @@
   border: none;
   padding: 0;
 }
-
-/* .project-description {
-  margi
-} */

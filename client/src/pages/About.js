@@ -8,8 +8,6 @@ function About() {
       <div className="about-container">
         <h1 className="about-header">About Us</h1>
         <div className="about-paragraph">
-          {/* <h2>Welcome to Experience.</h2> */}
-
           <p className="sentence">
             Have you ever applied for a job and got told that you do not have
             enough experience?

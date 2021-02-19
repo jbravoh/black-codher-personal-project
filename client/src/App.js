@@ -8,7 +8,7 @@ import ProjectForm from "./components/Forms/ProjectForm";
 import "./stylesheets/App.css";
 import SignUpForm from "./components/Forms/SignUpForm";
 import LoginForm from "./components/Forms/LoginForm";
-import Search from "./components/Search";
+import "./components/Search";
 
 import Dashboard from "./pages/Dashboard";
 import ClientProjects from "./pages/ClientProjects";
@@ -93,11 +93,14 @@ function App() {
   };
 
   return (
-    //32-41 telling the app what to do
     <>
       <div className="content-wrap">
         <Router>
-          <Navbar token={token} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+          <Navbar
+            token={token}
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+          />
           <Route
             exact
             path="/"
@@ -135,26 +138,6 @@ function App() {
             render={() => (
               <React.Fragment>
                 <Opportunities />
-
-                {/* <div>
-                  <ul className="projects-container">
-                    {searchedProjects && searchedProjects.length > 0 ? (
-                      searchedProjects.map((project) => renderProject(project)) // looping through project and rendering on the screen
-                    ) : (
-                      <p> No projects found </p>
-                    )}
-                  </ul>
-                </div> */}
-                {/* <h1 className="projects-header">Opportunities</h1>
-                <div>
-                  <ul className="projects-container">
-                    {projects && projects.length > 0 ? (
-                      projects.map((project) => renderProject(project)) // looping through project and rendering on the screen
-                    ) : (
-                      <p> No projects found </p>
-                    )}
-                  </ul>
-                </div> */}
               </React.Fragment>
             )}
           />
@@ -182,7 +165,6 @@ function App() {
             render={() => (
               <React.Fragment>
                 <Dashboard />
-                {/* <Dashboard currentUsername={currentUsername} /> */}
               </React.Fragment>
             )}
           />
@@ -213,7 +195,6 @@ function App() {
                   setToken={setToken}
                   setClient={appId().setId}
                   setIsLoggedIn={setIsLoggedIn}
-                  // setCurrentUsername={setCurrentUsername}
                 />
               </React.Fragment>
             )}
@@ -236,49 +217,3 @@ function App() {
 }
 
 export default App;
-
-//Task get it to list projects instead & create service etc
-
-// SERVICES - calling the api's created
-// import userService from './services/userService'; // create a projectService (copy line by line)
-
-// function App() {
-//   const [users, setusers] = useState(null);
-
-//   useEffect(() => { // checks if there is any users (line 7)
-//     if (!users) {
-//       getusers();
-//     }
-//   });
-
-//   const getusers = async () => { // copy this and three const and create versions for projects
-//     let res = await userService.getAll();
-//     setusers(res);
-//   };
-
-//   const renderUser = (user) => {
-//     return (
-//       <li key={user._id}>
-//         <h3>
-//           {`${user.first_name}
-//           ${user.last_name}`}
-//         </h3>
-//         <p>{user.location}</p>
-//       </li>
-//     );
-//   };
-
-//   return ( //32-41 telling the app what to do
-//     <div>
-//       <ul>
-//         {users && users.length > 0 ? (
-//           users.map((user) => renderUser(user)) // looping through users and rendering on the screen
-//         ) : (
-//           <p>No users found</p>
-//         )}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default App

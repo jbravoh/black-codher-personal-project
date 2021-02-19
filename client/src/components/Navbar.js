@@ -65,12 +65,7 @@ class Navbar extends React.Component {
 
   render() {
     const navbarItems = this.props.isLoggedIn ? loggedIn : loggedOut
-    // const loginLogout = MenuItems.filter((item) => {
-    //   if (!this.props.token && item.label === "Logout") {
-    //   return false;
-    //   }
-    //   return true;
-    // });
+
 
     return (
       <nav className="navbar-items">
@@ -89,9 +84,6 @@ class Navbar extends React.Component {
                 <Link to={items.url} className={items.cName}>
                   {items.label}
                 </Link>
-                {/* <a className={items.cName} href={items.url}>
-                  {items.label}
-                </a> */}
               </li>
             );
           })}

@@ -20,24 +20,3 @@ const clientSchema = new Schema({
 });
 
 module.exports = mongoose.model("clients", clientSchema);
-
-// clientSchema.pre("save", function (next) {
-//   // Check to see if document is new or a new password has been set
-//   if (this.isNew || this.isModified("password")) {
-//     // Saving reference to this because of changing scopes
-//   } else {
-//     next();
-//   }
-// });
-//     const document = this;
-//     bcrypt.hash(document.password, saltRounds, function (err, hashedPassword) {
-//       if (err) {
-//         next(err);
-//       } else {
-//         document.password = hashedPassword;
-//       }
-//     });
-//   } else {
-//     next();
-//   }
-// });

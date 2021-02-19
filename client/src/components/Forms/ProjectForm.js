@@ -57,15 +57,7 @@ function ProjectForm() {
         </React.Fragment>
         <form
           onkeydown="return event.key != 'Enter';"
-          onSubmit={
-            handleSubmit
-            // (e) => {
-            //   e.target.keyCode === 13 && e.preventDefault();
-            // })
-          }
-          // onKeyPress={(e) => {
-          //   e.target.keyCode === 13 && e.preventDefault();
-          // }}
+          onSubmit={handleSubmit}
           className="formContainer"
         >
           <label>
@@ -94,35 +86,6 @@ function ProjectForm() {
             />
           </label>
           <label>
-            <div className="label">Skills Required:</div>
-            {/* <input
-              type="textarea"
-              value={SkillsRequired}
-              onChange={(e) => setSkillsRequired(e)}
-            /> */}
-            {/* <div className="tags-input">
-              <ul>
-                {tags.map((tag, index) => (
-                  <li key={index}>
-                    <span>{tag}</span>
-                    <i
-                      className="material-icons"
-                      onClick={() => removeTags(index)}
-                    >
-                      close
-                    </i>
-                  </li>
-                ))}
-              </ul>
-              <input
-                type="text"
-                onKeyUp={(e) => addTags(e)}
-                placeholder="Press enter to add tags"
-              />
-            </div> */}
-            {/* <TagInput selectedTags={selectedTags} /> */}
-          </label>
-          <label>
             <div className="label">Location:</div>
             <CountryDropdown
               value={Country}
@@ -144,14 +107,9 @@ function ProjectForm() {
               onChange={(e) => setDate(e.target.value)}
             />
           </label>
-          <button
-            type="submit"
-            // value="Submit"
-            className="button"
-          >
+          <button type="submit" className="button">
             Submit
           </button>
-          {/* // onKeyDown={(e) => console.log(e.which)} */}
         </form>
       </div>
     </>

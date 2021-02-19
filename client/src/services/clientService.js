@@ -13,22 +13,4 @@ export default {
   createClient: async (client) => {
     await axios.post(`/api/client`, client);
   },
-
-  // createClient: async (newClient) => {
-  //   await axios.post(`/api/client`, newClient);
-  // },
-
-  // loginUser: async (credentials) => {
-  //   await axios.post(`/api/login`, credentials);
-  // },
-
-  //   async function loginUser(credentials) {
-  //   return fetch("http://localhost:5000/api/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "client/json",
-  //     },
-  //     body: JSON.stringify(credentials),
-  //   }).then((data) => data.json());
-  // }
 };

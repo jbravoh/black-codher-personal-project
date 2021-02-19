@@ -39,7 +39,6 @@ function SignUpForm() {
 
   return (
     <>
-      {/* <div className="content-wrap"> */}
       <React.Fragment>
         <h2 className="formTitle">Create a New Account</h2>
       </React.Fragment>
@@ -84,7 +83,6 @@ function SignUpForm() {
           </p>
         </div>
       </form>
-      {/* </div> */}
     </>
   );
 }

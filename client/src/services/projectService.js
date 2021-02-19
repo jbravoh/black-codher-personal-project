@@ -18,4 +18,3 @@ export default {
   },
 };
 
-// Why is it NewClient???

@@ -1,7 +1,6 @@
 import React from "react";
 import "../stylesheets/ProjectProfile.css";
 import { Link, useLocation } from "react-router-dom";
-// import projectService from "../services/projectService";
 
 function ProjectProfile() {
   let location = useLocation();
@@ -17,10 +16,6 @@ function ProjectProfile() {
           <h3 className="profile-client-name">{`${project.client_name}`}</h3>
           <p className="profile-location">{`${project.location.Region}, ${project.location.Country}`}</p>
         </div>
-          {/* <div className="flex">
-            <p className="profile-Location">{`${project.location.Region}, ${project.location.Country}`}</p>
-            <p className="profile-date">Deadline: {`${project.date}`}</p>
-          </div> */}
           <h4 className="profile-subheading">Description </h4>
           <p className="profile-description">{`${project.project_description}`}</p>
        
@@ -33,7 +28,6 @@ function ProjectProfile() {
 
   return (
     <>
-      {/* <h1 className="profile-title">Details</h1>; */}
       <div>
         <ul className="container">
           {project ? (

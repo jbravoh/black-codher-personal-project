@@ -2,8 +2,8 @@
 import axios from 'axios';
 
 export default {
-  getAll: async () => { //name of function
-    const res = await axios.get(`/api/user`); //module that you can call api's - inside is the route
+  getAll: async () => { 
+    const res = await axios.get(`/api/user`);
     return res.data || [];
   },
 };
