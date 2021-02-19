@@ -6,4 +6,6 @@ Experience was created using CSS, React, Node.js and MongoDB.
 
 This web application connects individuals looking for opportunities and businesses providing those opportunities. It was created to help people develop skills, explore industries and improve employability through projects, volunteer work and internships.
 
+
+
 ![Desktop Mockup of Experience App](TO-DO-LIST/img/expeirence.png)
